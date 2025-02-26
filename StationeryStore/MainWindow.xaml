@@ -1,0 +1,52 @@
+﻿<Window x:Class="StationeryStore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         WindowStartupLocation="CenterScreen"
+        Icon="/Resources/Images/icon.ico" 
+        
+        Title="Stationery Store" Height="649" Width="924">
+    <DockPanel Margin="0,54,0,0">
+
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Width="208" AutomationProperties.HelpText="" Height="51" HorizontalAlignment="Right" >
+            <TextBlock x:Name="UserNameTextBlock"  HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+        </StackPanel>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="493">
+            <StackPanel Margin="10">
+                <Button Content="Управление" x:Name="AdminPanelButton" Visibility="Collapsed" Click="AdminPanelButton_Click" Margin="0,0,0,10" Height="70" Background="#FF76E383"/>
+                <ItemsControl x:Name="ProductItemsControl">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border  BorderThickness="1" Margin="5" Padding="10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="100"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Фото продукта -->
+                                    <Border  BorderThickness="1" Margin="5" Width="130" Height="130">
+                                        <Image Source="{Binding ProductPhoto}" Stretch="Uniform"/>
+                                    </Border>
+
+                                    <!-- Описание продукта -->
+                                    <StackPanel Grid.Column="1" Margin="10,0">
+                                        <TextBlock Text="{Binding ProductName}" FontWeight="Bold" FontSize="16"/>
+                                        <TextBlock Text="{Binding ProductDescription}" Margin="0,5,0,0"/>
+                                        <TextBlock Text="Производитель: " FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding ProductManufacturer}"/>
+                                    </StackPanel>
+
+                                    <!-- Добавить в заказ -->
+                                    
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <Button Content="Оформить заказ" Click="OrderButton_Click" Width="283" Height="75" Background="#FF76E383" HorizontalAlignment="Right"/>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

@@ -1,0 +1,27 @@
+﻿<Window x:Class="StationeryStore.Windows.ProductEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         WindowStartupLocation="CenterScreen"
+        Icon="/Resources/Images/icon.ico" 
+        
+        Title="Редактирование товара" Height="313" Width="533">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="NameTextBox" Margin="5" Text="Название"/>
+        <TextBox x:Name="DescriptionTextBox" Grid.Row="1" Margin="5" Text="Описание"/>
+        <TextBox x:Name="ManufacturerTextBox" Grid.Row="2" Margin="5" Text="Производитель"/>
+        <TextBox x:Name="DiscountTextBox" Grid.Row="3" Margin="5" Text="Скидка (%)"/>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,64,5,5" Width="315">
+            <Button Content="Сохранить" Width="152" Margin="5" Click="SaveButton_Click" Height="47" Background="#FF76E383"/>
+            <Button Content="Отмена" Width="154" Margin="5" Click="CancelButton_Click" Height="46" Background="#FF76E383"/>
+        </StackPanel>
+    </Grid>
+</Window>

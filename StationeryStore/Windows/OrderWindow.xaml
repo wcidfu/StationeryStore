@@ -1,0 +1,30 @@
+﻿<Window x:Class="StationeryStore.Windows.OrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         WindowStartupLocation="CenterScreen"
+        Icon="/Resources/Images/icon.ico" 
+        
+        Title="Оформление заказа" Height="600" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="OrderListView" SelectionMode="Multiple">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding ProductName}" Width="200"/>
+                    <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding ProductCost}" Width="100"/>
+                    <GridViewColumn Header="Скидка" DisplayMemberBinding="{Binding ProductDiscountAmount}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <TextBlock Text="Сумма: " VerticalAlignment="Center"/>
+            <TextBlock x:Name="TotalAmountTextBlock" VerticalAlignment="Center" Margin="5,0"/>
+            <Button Content="Оформить заказ" Width="176" Margin="5" Click="PlaceOrderButton_Click" Height="41" Background="#FF76E383"/>
+        </StackPanel>
+    </Grid>
+</Window>
